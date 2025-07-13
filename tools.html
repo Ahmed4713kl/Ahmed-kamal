@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أحمد كمال - أدوات حسابية</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function حساب_مساحة_الدائرة() {
+      const نصف_القطر = parseFloat(document.getElementById('نصف_القطر').value);
+      const النتيجة = Math.PI * Math.pow(نصف_القطر, 2);
+      document.getElementById('نتيجة_الدائرة').textContent = 'المساحة: ' + النتيجة.toFixed(2);
+    }
+    function حساب_حجم_الاسطوانة() {
+      const نصف_القطر = parseFloat(document.getElementById('اسطوانة_نصف_القطر').value);
+      const الارتفاع = parseFloat(document.getElementById('الارتفاع').value);
+      const الحجم = Math.PI * Math.pow(نصف_القطر, 2) * الارتفاع;
+      document.getElementById('نتيجة_الاسطوانة').textContent = 'الحجم: ' + الحجم.toFixed(2);
+    }
+    function حل_معادلة() {
+      const a = parseFloat(document.getElementById('a').value);
+      const b = parseFloat(document.getElementById('b').value);
+      const c = parseFloat(document.getElementById('c').value);
+      const delta = b*b - 4*a*c;
+      let result = '';
+      if (delta > 0) {
+        const x1 = (-b + Math.sqrt(delta)) / (2*a);
+        const x2 = (-b - Math.sqrt(delta)) / (2*a);
+        result = 'الحلان: x1 = ' + x1.toFixed(2) + ', x2 = ' + x2.toFixed(2);
+      } else if (delta === 0) {
+        const x = -b / (2*a);
+        result = 'الحل الوحيد: x = ' + x.toFixed(2);
+      } else {
+        result = 'لا يوجد حل حقيقي.';
+      }
+      document.getElementById('نتيجة_المعادلة').textContent = result;
+    }
+  </script>
+</head>
+<body>
+  <img src="profile.jpg" alt="أحمد كمال" style="width:150px; border-radius: 50%;">
+
+  <header>
+    <h1>أدوات حسابية</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="projects.html">الأعمال</a></li>
+        <li><a href="tools.html">برامج حسابية</a></li>
+        <li><a href="contact.html">تواصل معي</a></li>
+        <li><a href="about.html">عنّي</a></li>
+      </ul>
+    </nav>
+  <img src="profile.jpg" alt="صورة أحمد كمال" style="max-width:200px; border-radius: 15px; margin: 20px auto; display: block;">
+</header>
+  <main>
+    <section class="tool">
+      <h2>حساب مساحة الدائرة</h2>
+      <input type="number" id="نصف_القطر" placeholder="أدخل نصف القطر">
+      <button onclick="حساب_مساحة_الدائرة()">احسب</button>
+      <p id="نتيجة_الدائرة"></p>
+    </section>
+    <section class="tool">
+      <h2>حساب حجم الأسطوانة</h2>
+      <input type="number" id="اسطوانة_نصف_القطر" placeholder="نصف القطر">
+      <input type="number" id="الارتفاع" placeholder="الارتفاع">
+      <button onclick="حساب_حجم_الاسطوانة()">احسب</button>
+      <p id="نتيجة_الاسطوانة"></p>
+    </section>
+    <section class="tool">
+      <h2>حل معادلة من الدرجة الثانية</h2>
+      <input type="number" id="a" placeholder="معامل x²">
+      <input type="number" id="b" placeholder="معامل x">
+      <input type="number" id="c" placeholder="الثابت">
+      <button onclick="حل_معادلة()">حل المعادلة</button>
+      <p id="نتيجة_المعادلة"></p>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 أحمد كمال | +249901694713 | ahm4713kl@gmail.com</p>
+  </footer>
+</body>
+</html>
